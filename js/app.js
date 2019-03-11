@@ -27,3 +27,7 @@ document.addEventListener('keyup', function (e) {
 
     player.handleInput(allowedKeys[e.keyCode]);
 });
+//lines 31-33 add after review of project 3/11/19
+document.querySelector('#win-modal button').addEventListener('click', resetGame);
+
+document.querySelector('.close-button').addEventListener('click', resetGame);

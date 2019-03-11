@@ -23,7 +23,7 @@ class Entity {
 
   checkCollisions(playerOrEnemy) {
     if (this.y === playerOrEnemy.y) {
-      if (this.x >= playerOrEnemy.x - 0.7 && this.x <= playerOrEnemy.x + 0.7) {
+      if (this.x >= playerOrEnemy.x - 0.2 && this.x <= playerOrEnemy.x + 0.2) {
         return true;
       }
     } else {
@@ -40,11 +40,12 @@ class Player extends Entity {
     this.isMoving = false;
   }
 
-  update() {
+  update(dt) {
     super.update();
     if (this.outOfBoundsY && !this.isMoving && !this.win) {
-      alert("win");
+      document.getElementById('win-modal');
       this.win = true;
+      object.reload(forcedReload)
     }
   }
 
