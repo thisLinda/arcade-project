@@ -27,7 +27,7 @@
    */
   function _load(url) {
     if (resourceCache[url]) {
-      /* If this URL has been previously loaded it will exist withinour resourceCache array. Just return that image rather re-loading the image.
+      /* If this URL has been previously loaded it will exist within our resourceCache array. Just return that image rather re-loading the image.
        */
       return resourceCache[url];
     } else {
@@ -80,7 +80,7 @@
     readyCallbacks.push(func);
   }
 
-  /* This object defines the publicly accessible functions available t developers by creating a global Resources object.
+  /* This object defines the publicly accessible functions available to developers by creating a global Resources object.
    */
   window.Resources = {
     load: load,
