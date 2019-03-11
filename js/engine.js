@@ -13,6 +13,7 @@ const Engine = (function (global) {
   const canvas = doc.createElement('canvas');
   const ctx = canvas.getContext('2d');
   let lastTime;
+  let animation;
 
   canvas.width = 505;
   canvas.height = 606;
@@ -37,8 +38,26 @@ const Engine = (function (global) {
 
     /* Use the browser's requestAnimationFrame function to call this function again as soon as the browser is able to draw another frame.
      */
-    win.requestAnimationFrame(main); //remember, win = window not game won!
+    animation = win.requestAnimationFrame(main); //remember, win = window not game won!
+    checkWin();
   }
+
+  function modalWin() {
+    setTimeout(function modalShow() {
+      modal.classList.toggle('hide');;
+    }, 200);
+  }
+
+  function checkWin() {
+    if (player.checkWin()) {
+      win.cancelAnimationFrame(animation); 
+      modalWin();
+    }
+  }
+
+  playAgain.addEventListener('click', function (event) {
+    init();
+  });
 
   /* This function does some initial setup that should only occur once, particularly setting the lastTime variable that is required for the game loop.
    */
@@ -123,7 +142,12 @@ const Engine = (function (global) {
   /* This function does nothing but it could have been a good place to handle game reset states - maybe a new game menu or a game over screen those sorts of things. It's only called once by the init() method.
    */
   function reset() {
-    // noop
+    if (!modal.classList.contains('hide')) {
+      modalWin();
+    }
+
+    player.x = 2;
+    player.y = 5
   }
 
   /* Go ahead and load all of the images we know we're going to need to draw our game level. Then set init as the callback method, so that when all of these images are properly loaded our game will start.

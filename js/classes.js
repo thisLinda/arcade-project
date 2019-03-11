@@ -1,6 +1,9 @@
 //using ES 6, rather than .prototype in app.js as provided in Udacity code
 /* Rodrick Bloomfield code instruction from zoom meeting https://zoom.us/recording/play/aulotDlzKFegQFIJTaTzKgWvNkVsYtlwO454vL1UPE1Cm6lOUBQCtfVurPOIAGAS?startTime=1529542978000 including instruction and rationale for creating classes.js */
 
+let modal = document.querySelector('#modal');
+let playAgain = document.querySelector('.playAgain');
+
 class Entity {
   constructor() {
     this.sprite = 'images/';
@@ -23,7 +26,7 @@ class Entity {
 
   checkCollisions(playerOrEnemy) {
     if (this.y === playerOrEnemy.y) {
-      if (this.x >= playerOrEnemy.x - 0.2 && this.x <= playerOrEnemy.x + 0.2) {
+      if (this.x >= playerOrEnemy.x - 0.7 && this.x <= playerOrEnemy.x + 0.7) {
         return true;
       }
     } else {
@@ -73,6 +76,14 @@ class Player extends Entity {
         break;
     }
     this.isMoving = true;
+  }
+  checkWin() {
+    if (this.y <1) {
+      return true;
+    }
+    else {
+      return false;
+    }
   }
 }
 

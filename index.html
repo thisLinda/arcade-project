@@ -3,17 +3,29 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Cats Hate Water!</title>
+  <title>But Cats Hate Water!?!</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-  <div id="win-modal"></div>
-    <h1 id=message> You won!</h1>
-    <a href="#" class="close-button"></a>
-    <button id="play-again">Play Again?</button>
+  <div class="container">
+    <h2>Udacity Arcade "Frogger"</h2>
+    <div class="rules">
+      <p>Use the arrow keys to cross the road, don't get hit by the bug enemies!</p>
+    </div>
+    <div id="modal" class="modal hide">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4>
+              <strong>WooHoo, you won!</strong>
+          </h4>
+        </div>
+        <div class="modal-body">
+          <button class="playAgain">Play Again</button>
+        </div>
+      </div>
+    </div>
   </div>
-
   <script src="js/resources.js"></script>
   <script src="js/classes.js"></script>
   <script src="js/app.js"></script>
