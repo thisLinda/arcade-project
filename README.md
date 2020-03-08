@@ -4,7 +4,7 @@ Welcome to my Udacity Arcade Game (student project three) completed with the ass
 
 GAME RULES:
 
-Download or clone the project: https://github.com/thisLinda/Arcade-project-4.
+Download or clone the project: https://github.com/thisLinda/Arcade-project.
 Run index.html in your default browser.
 
 GAME PLAY:
